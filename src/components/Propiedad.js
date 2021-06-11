@@ -1,21 +1,21 @@
 import React, {Component} from 'react';
-import MovieList  from './MovieList';
+import PropiedadList  from './PropiedadList';
 
 
-class Movie extends Component {
+class Propiedad extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { 
-			moviesList:[]
+			propiedadesList:[]
 		 }
 	}
 	componentDidMount(){
-        fetch('/api/movies')
+        fetch('/api/propiedades')
         .then(respuesta =>{
             return respuesta.json()
         })
-        .then(movies =>{
-            this.setState({moviesList: movies.data})
+        .then(propiedades =>{
+            this.setState({propiedadesList: propiedades.data})
         })
         .catch(error=>console.log(error))
     }
@@ -23,7 +23,7 @@ class Movie extends Component {
 		return (  
 			<React.Fragment>
 				    {/*<!-- PRODUCTS LIST -->*/}
-					<h1 className="h3 mb-2 text-gray-800">All the movies in the Database</h1>
+					<h1 className="h3 mb-2 text-gray-800">All the real state in the Database</h1>
 					
 					{/*<!-- DataTales Example -->*/}
 					<div className="card shadow mb-4">
@@ -34,23 +34,18 @@ class Movie extends Component {
 										<tr>
                                             <th>Id</th>
                                             <th>Titulo</th>
-                                            <th>Calificación</th>
-                                            <th>Premios</th>
-                                            <th>Duración</th>
+                                            <th>Tipo de operación</th>
+                                            <th>Dirección</th>
+											<th>Moneda</th>
+                                            <th>Precio</th>
 										</tr>
 									</thead>
 									<tfoot>
-										<tr>
-                                            <th>Id</th>
-                                            <th>Titulo</th>
-                                            <th>Calificación</th>
-                                            <th>Premios</th>
-                                            <th>Duración</th>
-										</tr>
+										
 									</tfoot>
 									<tbody>
-									{this.state.moviesList.map((movie,index)=>{
-                                        return  <MovieList  {...movie}  key={index} />
+									{this.state.propiedadesList.map((propiedad,index)=>{
+                                        return  <PropiedadList  {...propiedad}  key={index} />
                                     })}
 									</tbody>
 								</table>
@@ -62,4 +57,4 @@ class Movie extends Component {
 		);
 	}
 }
-export default Movie;
+export default Propiedad;

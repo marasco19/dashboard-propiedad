@@ -1,5 +1,9 @@
 import React from 'react';
-import image from '../assets/images/logo-DH.png';
+import image from '../assets/images/logo2.png';
+import Propiedad from './Propiedad';
+import Chart from './Chart';
+import Usuario from './Usuario';
+import {Link, Route, Switch} from 'react-router-dom';
 
 function SideBar(){
     return(
@@ -10,7 +14,7 @@ function SideBar(){
                 {/*<!-- Sidebar - Brand -->*/}
                 <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
                     <div className="sidebar-brand-icon">
-                        <img className="w-100" src={image} alt="Digital House"/>
+                        <img className="w-50" src={image} alt="Anchorena propiedades"/>
                     </div>
                 </a>
 
@@ -19,44 +23,76 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Dashboard -->*/}
                 <li className="nav-item active">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" to="/">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard - DH movies</span></a>
+                        <span>Dashboard - Anchorena propiedades</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider"/>
 
                 {/*<!-- Heading -->*/}
-                <div className="sidebar-heading">Actions</div>
+                <div className="sidebar-heading">Sitios</div>
 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
-                    <a className="nav-link collapsed" href="/">
+                <Link className="nav-link" to="/Propiedad">
                         <i className="fas fa-fw fa-folder"></i>
-                        <span>Pages</span>
-                    </a>
+                        <span>Propiedades</span>
+                    </Link>
                 </li>
 
                 {/*<!-- Nav Item - Charts -->*/}
                 <li className="nav-item">
-                    <a className="nav-link" href="/">
+                    <Link className="nav-link" to="/Chart">
                         <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Charts</span></a>
+                        <span>Charts</span></Link>
                 </li>
 
                 {/*<!-- Nav Item - Tables -->*/}
-                <li className="nav-item">
-                    <a className="nav-link" href="/">
+                <li className="nav-item nav-link">
+                <Link className="nav-link" to="/ContentRowMovies">
                         <i className="fas fa-fw fa-table"></i>
-                        <span>Tables</span></a>
+                        <span>Usuarios</span></Link>
                 </li>
+
+                
 
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
             </ul>
             {/*<!-- End of Sidebar -->*/}
-            
+
+            {/*<!-- Microdesafio 1 -->*/}
+            {/*<!--<Route exact path="/">
+                <ContentWrapper />
+            </Route>
+            <Route path="/GenresInDb">
+                <GenresInDb />
+            </Route>
+            <Route path="/LastMovieInDb">
+                <LastMovieInDb />
+            </Route>
+            <Route path="/ContentRowMovies">
+                <ContentRowMovies />
+            </Route>*/}
+            {/*<!-- End Microdesafio 1 -->*/}
+
+            {/*<!-- End Microdesafio 2 -->*/}
+            <Switch>
+
+                <Route path="/Propiedad">
+                    <Propiedad />
+                </Route>
+                <Route path="/Chart">
+                    <Chart />
+                </Route>
+                <Route path="/Usuario">
+                    <Usuario />
+                </Route>
+               
+            </Switch>
+            {/*<!-- End Microdesafio 2 -->*/}
         </React.Fragment>
     )
 }

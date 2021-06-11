@@ -1,20 +1,21 @@
 import React, {Component} from 'react';
-import Genre  from './Genre';
+import Usuario  from './Usuario';
 
-class GenresInDb extends Component {
+
+class UsuariosInDb extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            genresList:[]
+            usuariosList:[]
          }
     }
     componentDidMount(){
-        fetch('/api/genres')
+        fetch('/api/usuarios')
         .then(respuesta =>{
             return respuesta.json()
         })
-        .then(genres =>{
-            this.setState({genresList: genres.data})
+        .then(usuarios =>{
+            this.setState({usuariosList: usuarios.data})
         })
         .catch(error=>console.log(error))
     }
@@ -29,13 +30,12 @@ class GenresInDb extends Component {
                 <div className="col-lg-6 mb-4">						
                     <div className="card shadow mb-4">
                         <div className="card-header py-3">
-                            <h6 className="m-0 font-weight-bold text-gray-800" onMouseOver={this.cambioFondo}>Genres in Data Base</h6>
+                            <h6 className="m-0 font-weight-bold text-gray-800" onMouseOver={this.cambioFondo}>Usuarios in Data Base</h6>
                         </div>
                         <div className="card-body colorFondo">
                             <div className="row">
-                                
-                                    {this.state.genresList.map((genre,index)=>{
-                                        return  <Genre  {...genre}  key={index} />
+                                    {this.state.usuariosList.map((usuario,index)=>{
+                                        return  <Usuario  {...usuario}  key={index} />
                                     })}
                             </div>
                         </div>
@@ -47,4 +47,4 @@ class GenresInDb extends Component {
     }
 }
 
-export default GenresInDb;
+export default UsuariosInDb;
