@@ -30,7 +30,7 @@ class UsuariosInDb extends Component {
                 <div className="col-lg-6 mb-4">						
                     <div className="card shadow mb-4">
                         <div className="card-header py-3">
-                            <h6 className="m-0 font-weight-bold text-gray-800" onMouseOver={this.cambioFondo}>Usuarios in Data Base</h6>
+                            <h6 className="m-0 font-weight-bold text-gray-800" onMouseOver={this.cambioFondo}>Usuarios registrados</h6>
                         </div>
                         <div className="card-body colorFondo">
                             <div className="row">
